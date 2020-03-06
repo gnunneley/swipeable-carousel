@@ -38,7 +38,8 @@ const Carousel = props => {
             <CarouselSlot
               key={index}
               order={getOrder({ index: index, pos: state.pos, numItems })}
-              size={40 - (Math.abs(getOrder({ index: index, pos: state.pos, numItems }) - middle)) * 10}
+              size={100 - (Math.abs(getOrder({ index: index, pos: state.pos, numItems }) - middle)) * 10}
+              sliding={state.sliding}
             >
               {child}
             </CarouselSlot>

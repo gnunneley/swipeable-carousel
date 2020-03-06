@@ -11,7 +11,7 @@ export const PREV = "PREV";
 //   background-size: cover;
 // `;
 
-export const Item = (props) => {return <img draggable="false" style={{maxHeight:"100%"}} src={props.img}></img>}
+export const Item = (props) => {return <img draggable="false" style={{maxHeight: "100%"}} src={props.img} alt={''}/>};
 
 // export const CarouselContainer = styled.div`
 //   display: flex;
@@ -27,9 +27,15 @@ export const Item = (props) => {return <img draggable="false" style={{maxHeight:
 
 export const CarouselContainer = styled.div`
   display: flex;
-  transition: ${props => (props.sliding ? "none" : "transform 1s ease")};
+  transition: ${props => (props.sliding ? "none" : "transform 1s ease-in-out")};
+  transform: ${props => {
+    if (!props.sliding) return "translateX(-16%)";
+    if (props.dir === PREV) return "translateX(-42%)";
+    return "translateX(10%)";
+  }};
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  height: 300px;
 `;
 
 export const Wrapper = styled.div`
@@ -39,13 +45,19 @@ export const Wrapper = styled.div`
 `;
 
 export const CarouselSlot = styled.div`
-  flex: 1 0 10%;
+  flex: 1 1 10%;
+  transition: transform 1s ease-in-out;
+  transform: ${props => {
+    return `scale(${(props.size)/100})`;
+}};
   order: ${props => props.order};
-  height: ${props => props.size}vh;
+  margin-right: 10px;
+  margin-left: 10px;
 `;
 
 export const AppContainer = styled.div`
   font-family: sans-serif;
   text-align: center;
   width: 100%;
-`;
+  height: 1px;
+  `
