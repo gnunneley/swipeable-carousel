@@ -2,8 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Item, AppContainer } from "./components";
 import Carousel from "./Carousel";
-// CREDITS for Carousel:
-// https://medium.com/@incubation.ff/build-your-own-css-carousel-in-react-part-one-86f71f6670ca
 
 function App() {
   return (

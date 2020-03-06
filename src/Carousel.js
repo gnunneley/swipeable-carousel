@@ -29,7 +29,7 @@ const Carousel = props => {
     trackMouse: true
   });
 
-  const middle = Math.floor(numItems/2);
+  const middle = 2;
   return (
     <div {...handlers}>
       <Wrapper>
